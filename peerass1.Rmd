@@ -1,0 +1,41 @@
+Peer Assessment 1 - Reproducible Research
+==============================================================================
+
+This assignment makes use of data from a personal activity monitoring device. This device collects data at 5 minute intervals through out the day. The data consists of two months of data from an anonymous individual collected during the months of October and November, 2012 and include the number of steps taken in 5 minute intervals each day.
+
+##Data Analysis
+
+### Loading the data
+To load the data in R, we do:
+```{r,echo=TRUE}
+activity <- read.csv('activity.csv');
+head(activity);
+```
+
+### Mean, median and histogram(number of steps)
+
+To calculate the mean and median of the number of steps, we type
+```{r,echo=TRUE}
+mean_steps <- mean(activity[,1],na.rm = TRUE); 
+median_steps <- median(activity[,1],na.rm=TRUE);
+mean_steps; 
+median_steps;
+```
+
+
+An histogram of the number of steps taken is plotted below
+```{r,echo=TRUE}
+hist(activity[[1]], main = "Histogram of number of steps", xlab = "number of steps")
+```
+
+The number of missing values in the dataset is calculated below:
+```{r}
+missing <- sum(rowSums(is.na(activity)));
+```
+There are `r missing` missing values in the dataset 
+
+
+
+
+
+
